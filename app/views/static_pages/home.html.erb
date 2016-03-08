@@ -1,1 +1,5 @@
-Hey
+<%= form_for @user, url: users_create_path do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  <%= f.submit %>
+<% end %>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'users/create'
+
+  post '/users/', to: 'users#create', as: :users_create
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
