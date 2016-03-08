@@ -29,18 +29,17 @@ ActiveRecord::Schema.define(version: 20160306093613) do
     t.float    "srm"
     t.float    "ph"
     t.float    "attenuation_level"
-    t.float    "mash_temp"
-    t.integer  "mash_temp_duration"
+    t.jsonb    "mash_temp"
     t.float    "fermentation_temp"
     t.text     "twist"
-    t.jsonb    "malt_json"
-    t.jsonb    "hops_json"
+    t.jsonb    "malt"
+    t.jsonb    "hops"
     t.string   "yeast"
-    t.string   "food_pairing",       default: [],              array: true
+    t.string   "food_pairing",      default: [],              array: true
     t.text     "brewers_tips"
     t.string   "contributed_by"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   create_table "users", force: :cascade do |t|

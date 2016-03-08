@@ -19,12 +19,11 @@ task load_beers: :environment do
       b.srm = json['srm']
       b.ph = json['ph']
       b.attenuation_level = json['attenuation_level']
-      b.mash_temp = json['method']['mash_temp']['temp']['value']
-      b.mash_temp_duration = json['method']['mash_temp']['duration']
+      b.mash_temp = json['method']['mash_temp'].to_json
       b.fermentation_temp = json['method']['fermentation']['temp']['value']
       b.twist = json['method']['twist']
-      b.malt_json = json['ingredients']['malt'].to_json
-      b.hops_json = json['ingredients']['hops'].to_json
+      b.malt = json['ingredients']['malt'].to_json
+      b.hops = json['ingredients']['hops'].to_json
       b.yeast = json['ingredients']['yeast']
       b.food_pairing = json['food_pairing']
       b.brewers_tips = json['brewers_tips']

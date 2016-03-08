@@ -13,12 +13,11 @@ class CreateBeers < ActiveRecord::Migration
       t.float :srm
       t.float :ph
       t.float :attenuation_level
-      t.float :mash_temp
-      t.integer :mash_temp_duration
+      t.jsonb :mash_temp
       t.float :fermentation_temp
       t.text :twist
-      t.jsonb :malt_json
-      t.jsonb :hops_json
+      t.jsonb :malt
+      t.jsonb :hops
       t.string :yeast
       t.string :food_pairing, array: true, default: []
       t.text :brewers_tips
