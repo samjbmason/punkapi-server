@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160306093613) do
+ActiveRecord::Schema.define(version: 20160309094914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,12 @@ ActiveRecord::Schema.define(version: 20160306093613) do
     t.string   "contributed_by"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
+    t.string   "hops_used",         default: [],              array: true
+    t.string   "malt_used",         default: [],              array: true
   end
+
+  add_index "beers", ["hops_used"], name: "index_beers_on_hops_used", using: :gin
+  add_index "beers", ["malt_used"], name: "index_beers_on_malt_used", using: :gin
 
   create_table "users", force: :cascade do |t|
     t.string   "email"

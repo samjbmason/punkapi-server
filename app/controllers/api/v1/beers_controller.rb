@@ -1,27 +1,41 @@
 module Api
   module V1
-    class BeersController < ApplicationController
+    class BeersController < Api::ApiController
       before_action :authenticate
+      has_scope :abv_gt
+      has_scope :abv_lt
+      has_scope :ibu_gt
+      has_scope :ibu_lt
+      has_scope :ebc_gt
+      has_scope :ebc_lt
+      has_scope :beer_name
+      has_scope :yeast
+      has_scope :brewed_before do |controller, scope, value|
+        date = Date.strptime(value, "%m-%Y")
+        scope.brewed_before(date)
+      end
+      has_scope :brewed_after do |controller, scope, value|
+        date = Date.strptime(value, "%m-%Y")
+        scope.brewed_after(date)
+      end
+      has_scope :hops do |controller, scope, value|
+        scope.hops(value.downcase)
+      end
+      has_scope :malt do |controller, scope, value|
+        scope.malt(value.downcase)
+      end
+      has_scope :food do |controller, scope, value|
+        scope.food(value.downcase)
+      end
 
       def index
-        @beers = paginate Beer.all
+        filtered_beers = apply_scopes(Beer)
+        @beers = paginate(filtered_beers).all
       end
 
-      protected
-
-      def authenticate
-        authenticate_api_key || render_unauthorized
-      end
-
-      def authenticate_api_key
-        authenticate_with_http_basic do |username, _password|
-          User.find_by(api_key: username)
-        end
-      end
-
-      def render_unauthorized
-        headers['WWW-Authenticate'] = 'Basic realm="Application"'
-        render json: 'Bad credentials', status: 401
+      def random
+        random = rand(Beer.count)
+        @beer = Beer.offset(random).first
       end
     end
   end
