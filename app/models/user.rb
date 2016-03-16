@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  before_save :set_api_key
+  before_create :set_api_key
   validates :email, presence: true, allow_blank: false
 
   def update_api_key

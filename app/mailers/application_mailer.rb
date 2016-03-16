@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'hello@punkapi.com'
+  default from: 'PunkAPI <hello@punkapi.com>'
   layout 'mailer'
 end
