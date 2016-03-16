@@ -8,7 +8,7 @@
   <h2 class="font-terminal f2 mb0">Authentication</h2>
   <p>To access the API you need to authenticate with an API key in each request, this is done using HTTP Basic Auth. Provide your API key as the basic auth username value. You do not need to provide a password.</p>
 
-  <%= code('shell') do %>$ curl https://punkapi.com/api/v1/beers -u "api key goes here":<% end %>
+  <%= code('shell') do %>$ curl https://punkapi.com/api/v1/beers -u api-key-goes-here:<% end %>
 </div>
 
 <div class="mb5">
@@ -16,7 +16,7 @@
   <p>All parameters are optional and without them the API will just return the beers in ascending order from their first brewed date. Paramaters are passed in as query string parameters and can be chained together.</p>
 
   <%= code('shell') do %>$ curl https://punkapi.com/api/v1/beers?brewed_before=11-2012&abv_gt=6 \
-       -u "api key goes here":<% end %>
+       -u api-key-goes-here:<% end %>
 </div>
 
 <div class="mb5">
@@ -25,7 +25,7 @@
   <p>All requests return a Link header that contains the links to the next page, previous page if available and the first and last page of results.</p>
 
   <%= code('shell') do %>$ curl https://punkapi.com/api/v1/beers?page=2&per_page=80 \
-       -u "api key goes here":<% end %>
+       -u api-key-goes-here:<% end %>
 </div>
 
 <div class="mb5">
@@ -38,7 +38,7 @@
 
   <p>Gets beers from the api, you can apply several filters using url paramaters, the available options are listed below.</p>
 
-  <%= code('shell') do %>$ curl https://punkapi.com/api/v1/beers -u "api key goes here":<% end %>
+  <%= code('shell') do %>$ curl https://punkapi.com/api/v1/beers -u api-key-goes-here:<% end %>
 
   <%= render partial: 'param_table' %>
 </div>
@@ -46,7 +46,7 @@
 <div class="mb5">
   <h2 class="font-terminal f2 mb0">Get Random Beer</h2>
   <p>Gets a random beer from the API, this takes no paramaters.</p>
-  <%= code('shell') do %>$ curl https://punkapi.com/api/v1/beers/random -u "api key goes here":<% end %>
+  <%= code('shell') do %>$ curl https://punkapi.com/api/v1/beers/random -u api-key-goes-here:<% end %>
 </div>
 
 <div class="mb5">
