@@ -1,6 +1,6 @@
 # PunkAPI - Server
 
-## Fetch latest punkapi data
+## Fetch the latest data from [punkapi](https://github.com/samjbmason/punkapi)
 The PunkAPI server is a pretty simple rails app, that provides authentication and a way to serve up the raw data.
 
 The data itself is stored in the [punkapi](https://github.com/samjbmason/punkapi) repository, it is pulled into this app through a git submodule.
