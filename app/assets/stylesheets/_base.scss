@@ -1,0 +1,30 @@
+body {
+  font-size: 16px;
+  font-family: 'office-code-pro';
+  font-weight: 400;
+  color: #333333;
+}
+
+.alert-notice {
+  background-color: #6CB150;
+  color: #FFFFFF;
+}
+
+.alert-error {
+  background-color: #EC5739;
+  color: #FFFFFF;
+}
+
+input[type="submit"] {
+  background-color: transparent;
+  outline: none;
+}
+
+input[type="text"] {
+  border-right: none;
+  outline: none;
+}
+
+.table-header {
+  background-color: #FAFAFB;
+}

@@ -1,3 +1,5 @@
+json.id beer.id
+
 json.name beer.name
 
 json.tagline beer.tagline

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   post '/users', to: 'users#create', as: :users_create
+  get '/documentation', to: 'static_pages#documentation', as: :documentation
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do

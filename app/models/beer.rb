@@ -1,4 +1,5 @@
 class Beer < ActiveRecord::Base
+  default_scope { order(:first_brewed) }
   scope :abv_gt,        -> abv { where("abv > ?", abv) }
   scope :abv_lt,        -> abv { where("abv < ?", abv) }
   scope :ibu_gt,        -> ibu { where("ibu > ?", ibu) }

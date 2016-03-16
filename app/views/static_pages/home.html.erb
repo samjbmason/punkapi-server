@@ -1,5 +1,19 @@
-<%= form_for @user, url: users_create_path do |f| %>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-  <%= f.submit %>
-<% end %>
+<div class="mb5">
+  <p>Have you ever wanted to search through Brewdog's expansive back catalogue of beer in a programmatic way? Maybe build a tool that pairs beer with food, or search beers with an abv of more than 4%? Well now your prayers have been answered!</p>
+  <p>The PunkAPI takes Brewdog's DIY Dog and turns it into a searchable, filterable API that's completely free and open source.</p>
+  <p>If you spot any mistakes with the data feel free to <a href="https://github.com/samjbmason/punkapi/issues">submit an issue</a>.</p>
+</div>
+
+
+<div class="mb5">
+  <h2 class="font-terminal f2 mb0">Get Started</h2>
+  <p>To get started sign up below to receive your API key and then read the <%= link_to 'documentation', documentation_path %>  to see what endpoints are available.</p>
+
+  <%= form_for @user, url: users_create_path, html: { class: 'new_user_signup cf mw6 center mt4' } do |f| %>
+    <fieldset class="bn pa0 ma0 fl w-75">
+      <%= f.label :email, class: 'dn' %>
+      <%= f.text_field :email, class: 'ba b--dashed bw2 b--dark-gray pa2 h3 db w-100', placeholder: 'punks@api.com' %>
+    </fieldset>
+    <%= f.submit 'Get API Key', class: 'ba b--dashed bw2 b--dark-gray font-terminal pa2 fr h3 w-25 dib' %>
+  <% end %>
+</div>

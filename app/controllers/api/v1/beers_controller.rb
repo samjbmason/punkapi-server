@@ -30,7 +30,7 @@ module Api
 
       def index
         filtered_beers = apply_scopes(Beer)
-        @beers = paginate(filtered_beers).all
+        @beers = paginate(filtered_beers)
       end
 
       def random

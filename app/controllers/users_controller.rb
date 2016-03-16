@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
     if @user
       flash[:notice] = 'An email has been sent with your API key'
+      UserMailer.new_user_api_key(@user).deliver_later
     else
       flash[:error] = 'Something went wrong, try again!'
     end

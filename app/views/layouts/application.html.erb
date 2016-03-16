@@ -1,14 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PunkapiServer</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <title>PunkAPI</title>
+  <meta name="description" content="Brewdog's DIY Dog as a searchable, filterable API">
+  <meta name="viewport" content="width=device-width">
+
+  <meta property="og:url" content="https://punkapi.com">
+  <meta property="og:title" content="Brewdog's DIY Dog as a searchable, filterable API">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:domain" content="punkapi.com">
+  <meta name="twitter:title" content="Brewdog's DIY Dog as a searchable, filterable API">
+
+  <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+  <% flash.each do |name, msg| -%>
+    <%= content_tag :div, msg, class: "tc pa2 alert-#{name}" %>
+  <% end -%>
+
+
+  <header class="tc mt4 mb4 mb5-ns">
+
+    <h1 class="font-terminal f-headline ttu ma0">
+      <%= link_to root_path, class: 'no-underline' do %>
+        <%= render partial: 'svg/bottle.svg' %>
+        Punk<span class="font-terminal-open logo-animation">API</span>
+      <% end %>
+    </h1>
+  </header>
+
+  <section class="mw7 center ph2 ph0-ns">
+    <%= yield %>
+  </section>
+
+  <footer class="tc mt5 mb4">
+    <p>Made by <a href="https://twitter.com/samjbmason">Sam Mason</a> <a href="https://github.com/samjbmason/punkapi/blob/master/LICENSE.md">License</a>
+    </p>
+  </footer>
 
 </body>
 </html>

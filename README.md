@@ -16,7 +16,7 @@ $ git merge origin/master
 This will download any new data from the `punkapi` repo, you can then run
 
 ```
-$ rake load_beers
+$ rake beer:load
 ```
 
 This will load up all the data and add it to the db.
