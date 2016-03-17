@@ -18,6 +18,7 @@
       <%= f.label :email, class: 'dn' %>
       <%= f.email_field :email, class: 'ba b--dashed bw2 b--dark-gray pa2 h3 db w-100', placeholder: 'punks@api.com', required: true %>
     </fieldset>
-    <%= f.submit 'Get API Key', class: 'ba b--dashed bw2 b--dark-gray font-terminal pa2 fr h3 w-25 dib' %>
+    <%= f.submit 'Get API Key', class: 'ba b--dashed bw2 b--dark-gray font-terminal pa2 fr h3 w-25 dib', onclick: "_gs('event', 'Signed up');" %>
   <% end %>
+  <p class="tc">We will never use your email to spam you!</p>
 </div>
