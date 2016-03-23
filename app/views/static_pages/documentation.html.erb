@@ -44,6 +44,14 @@
 </div>
 
 <div class="mb5">
+  <h2 class="font-terminal f2 mb0">Get a Single Beer</h2>
+
+  <p>Gets a beer from the api using the beers id.</p>
+
+  <%= code('shell') do %>$ curl https://punkapi.com/api/v1/beers/1 -u api-key-goes-here:<% end %>
+</div>
+
+<div class="mb5">
   <h2 class="font-terminal f2 mb0">Get Random Beer</h2>
   <p>Gets a random beer from the API, this takes no paramaters.</p>
   <%= code('shell') do %>$ curl https://punkapi.com/api/v1/beers/random -u api-key-goes-here:<% end %>
