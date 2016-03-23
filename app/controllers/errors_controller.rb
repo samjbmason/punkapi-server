@@ -1,8 +1,19 @@
 class ErrorsController < ApplicationController
-  def not_found
+  def endpoint_not_found
     if env['REQUEST_PATH'] =~ /^\/api/
       json = { message: 'Endpoint Not Found',
                description: 'We dont recognise that endpoint, you are probably looking for either /random or /beers'
+      }
+      render json: json, status: 404
+    else
+      redirect_to root_path
+    end
+  end
+
+  def record_not_found
+    if env['REQUEST_PATH'] =~ /^\/api/
+      json = { message: 'Record Not Found',
+               description: 'There isn\'t a beer with this matching id'
       }
       render json: json, status: 404
     else

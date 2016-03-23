@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :beer do
+    id 1
     name '5am Saint'
     tagline 'Bittersweet Chaos. Malty. Fruity. Bite.'
     first_brewed '06/2009'

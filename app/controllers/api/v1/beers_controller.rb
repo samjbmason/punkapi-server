@@ -33,6 +33,16 @@ module Api
         @beers = paginate(filtered_beers)
       end
 
+      def show
+        @beer = Beer.find(params[:id])
+
+      rescue ActiveRecord::RecordNotFound
+          json = { message: 'Record Not Found',
+                   description: "There isn't a beer matching the ID #{params[:id]}"
+          }
+          render json: json, status: 404
+      end
+
       def random
         random = rand(Beer.count)
         @beer = Beer.offset(random).first
