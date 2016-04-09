@@ -1,4 +1,4 @@
-# PunkAPI - Server
+# PunkAPI - Server [![Build Status](https://travis-ci.org/samjbmason/punkapi-server.svg?branch=master)](https://travis-ci.org/samjbmason/punkapi-server)
 
 The PunkAPI server is a pretty simple rails app, that provides authentication and a way to serve up the raw data.
 
