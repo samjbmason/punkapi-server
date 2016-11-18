@@ -1,9 +1,7 @@
-const db = require('punkapi-db');
-const expressValidator = require('express-validator');
-const Boom = require('boom');
-const paginate = require('../../lib/paginate');
-const filters = require('../../lib/filters');
-const { validationError } = require('../../lib/errorHandler');
+const db = require('punkapi-db')
+const paginate = require('../../lib/paginate')
+const filters = require('../../lib/filters')
+const { validationError } = require('../../lib/errorHandler')
 
 // Schema
 const schema = {
@@ -57,22 +55,22 @@ const schema = {
     optional: true,
     matches: /\d{2}-\d{4}\b/
   }
-};
+}
 
-function beers(req, res, next) {
-  req.checkQuery(schema);
+function beers (req, res, next) {
+  req.checkQuery(schema)
 
-  const errors = req.validationErrors();
+  const errors = req.validationErrors()
 
   if (errors) {
-    return next(validationError(errors));
+    return next(validationError(errors))
   }
 
-  const filteredDb = filters(db, req);
-  const paginatedBeers = paginate(filteredDb, req);
+  const filteredDb = filters(db, req)
+  const paginatedBeers = paginate(filteredDb, req)
 
-  res.status(200);
+  res.status(200)
   res.json(paginatedBeers)
 };
 
-module.exports = beers;
+module.exports = beers

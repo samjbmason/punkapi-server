@@ -1,7 +1,7 @@
-const mongodb = require('mongodb');
+const mongodb = require('mongodb')
 
-function signup(req, res) {
-  
+function signup (req, res) {
+
 };
 
-module.exports = signup;
+module.exports = signup
