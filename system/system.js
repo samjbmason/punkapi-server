@@ -14,14 +14,6 @@ function getPort () {
   return process.env.PORT || 3333
 }
 
-function getMailgunAPIDetails () {
-  return {
-    domain: process.env.MAILGUN_DEV_DOMAIN,
-    username: process.env.MAILGUN_DEV_USERNAME,
-    password: process.env.MAILGUN_DEV_PASSWORD
-  }
-}
-
 function shutdown (server) {
   return (server) => {
     winston.info('Closing active connections')
@@ -36,5 +28,4 @@ function shutdown (server) {
 
 exports.isDev = isDev
 exports.getPort = getPort
-exports.getMailgunAPIDetails = getMailgunAPIDetails
 exports.shutdown = shutdown

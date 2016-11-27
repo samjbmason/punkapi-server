@@ -5,10 +5,3 @@
 /log/*
 !/log/.keep
 /tmp
-
-
-# Ignore punkapi-data files
-/punkapi-data/*
-!/punkapi-data/data
-
-.env

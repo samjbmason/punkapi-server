@@ -1,24 +1,24 @@
 const db = require('punkapi-db')
-const nth = require('lodash/nth')
+const find = require('lodash/find')
+const toInteger = require('lodash/toInteger')
+const schema = require('../../schemas/beer')
 
-// Schema
-const schema = {
-  beerId: {
-    isInt: { options: { min: 1 } }
-  }
-}
-
-function beer (req, res) {
+function beer (req, res, next) {
   req.checkParams(schema)
 
   const errors = req.validationErrors()
+
   if (errors) {
-    res.send(errors)
-    return
+    return next({code: 400})
   }
 
   const { beerId } = req.params
-  const selectedBeer = nth(db, beerId)
+  const beerIdInt = toInteger(beerId)
+  const selectedBeer = find(db, { id: beerIdInt })
+
+  if (selectedBeer == null) {
+    return next({code: 404, msg: `No beer found that matches the ID ${beerId}`})
+  }
 
   res.status(200)
   res.json(selectedBeer)
