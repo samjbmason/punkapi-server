@@ -2,10 +2,10 @@ const request = require('supertest')
 const moment = require('moment')
 const app = require('../../index')
 
-describe('/v2/beers/', function() {
+describe('/beers/', function() {
   it('sould return beers in ascending order by ID', function (done) {
     request(app)
-      .get('/v2/beers/')
+      .get('/beers/')
       .end(function(err, res) {
         res.statusCode.should.equal(200)
         res.should.be.json()
@@ -19,7 +19,7 @@ describe('/v2/beers/', function() {
 
   it('should return 25 beers by default', function (done) {
     request(app)
-      .get('/v2/beers/')
+      .get('/beers/')
       .end(function(err, res) {
         res.statusCode.should.equal(200)
         res.should.be.json()
@@ -31,7 +31,7 @@ describe('/v2/beers/', function() {
 
   it('should return beers with abv greater than 10', function (done) {
     request(app)
-      .get('/v2/beers/?abv_gt=10')
+      .get('/beers/?abv_gt=10')
       .end(function(err, res) {
         res.statusCode.should.equal(200)
         res.should.be.json()
@@ -42,7 +42,7 @@ describe('/v2/beers/', function() {
 
   it('should return beers with name matching chars punk', function (done) {
     request(app)
-      .get('/v2/beers/?beer_name=punk')
+      .get('/beers/?beer_name=punk')
       .end(function(err, res) {
         res.statusCode.should.equal(200)
         res.should.be.json()
@@ -55,7 +55,7 @@ describe('/v2/beers/', function() {
     const givenDate = moment('02-2014', 'MM-YYYY').format('X')
 
     request(app)
-      .get('/v2/beers/?brewed_after=02-2014')
+      .get('/beers/?brewed_after=02-2014')
       .end(function(err, res) {
         res.statusCode.should.equal(200)
         res.should.be.json()
@@ -69,7 +69,7 @@ describe('/v2/beers/', function() {
     const givenDate = moment('02-2014', 'MM-YYYY').format('X')
 
     request(app)
-      .get('/v2/beers/?brewed_before=02-2014')
+      .get('/beers/?brewed_before=02-2014')
       .end(function(err, res) {
         res.statusCode.should.equal(200)
         res.should.be.json()
@@ -81,7 +81,7 @@ describe('/v2/beers/', function() {
 
   it('should return beers with ebc greater than 25', function (done) {
     request(app)
-      .get('/v2/beers/?ebc_gt=25')
+      .get('/beers/?ebc_gt=25')
       .end(function(err, res) {
         res.statusCode.should.equal(200)
         res.should.be.json()
@@ -92,7 +92,7 @@ describe('/v2/beers/', function() {
 
   it('should return beers with ebc less than 25', function (done) {
     request(app)
-      .get('/v2/beers/?ebc_lt=25')
+      .get('/beers/?ebc_lt=25')
       .end(function(err, res) {
         res.statusCode.should.equal(200)
         res.should.be.json()
@@ -103,7 +103,7 @@ describe('/v2/beers/', function() {
 
   it('should return beers that match the food pairing string of mint', function (done) {
     request(app)
-      .get('/v2/beers/?food=mint')
+      .get('/beers/?food=mint')
       .end(function(err, res) {
         res.statusCode.should.equal(200)
         res.should.be.json()
@@ -114,7 +114,7 @@ describe('/v2/beers/', function() {
 
   it('should return beers that contain hops with Nelson Sauvin', function (done) {
     request(app)
-      .get('/v2/beers/?hops=nelson')
+      .get('/beers/?hops=nelson')
       .end(function(err, res) {
         res.statusCode.should.equal(200)
         res.should.be.json()
@@ -127,7 +127,7 @@ describe('/v2/beers/', function() {
 
   it('should return beers with ibu greater than 12', function (done) {
     request(app)
-      .get('/v2/beers/?ibu_gt=12')
+      .get('/beers/?ibu_gt=12')
       .end(function(err, res) {
         res.statusCode.should.equal(200)
         res.should.be.json()
@@ -138,7 +138,7 @@ describe('/v2/beers/', function() {
 
   it('should return beers with ibu less than 20', function (done) {
     request(app)
-      .get('/v2/beers/?ibu_lt=20')
+      .get('/beers/?ibu_lt=20')
       .end(function(err, res) {
         res.statusCode.should.equal(200)
         res.should.be.json()
@@ -149,7 +149,7 @@ describe('/v2/beers/', function() {
 
   it('should return beers with malt matching Extra Pale', function (done) {
     request(app)
-      .get('/v2/beers/?malt=Pale')
+      .get('/beers/?malt=Pale')
       .end(function(err, res) {
         res.statusCode.should.equal(200)
         res.should.be.json()
@@ -162,7 +162,7 @@ describe('/v2/beers/', function() {
 
   it('should return beers with yeast matching Wyeast 1056', function (done) {
     request(app)
-      .get('/v2/beers/?yeast=Wyeast_1056')
+      .get('/beers/?yeast=Wyeast_1056')
       .end(function(err, res) {
         res.statusCode.should.equal(200)
         res.should.be.json()

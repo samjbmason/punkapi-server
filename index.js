@@ -8,7 +8,7 @@ const app = express()
 app.use(require('helmet')())
 app.use(require('express-validator')())
 
-app.use('/v2', rateLimit, require('./routes'))
+app.use('/', rateLimit, require('./routes'))
 app.use('*', (req, res, next) => next({code: 404}))
 
 app.use(require('./lib/errorHandler'))
