@@ -1,4 +1,5 @@
 const db = require('punkapi-db')
+const sortBy = require('lodash/sortBy')
 const paginate = require('../../lib/paginate')
 const filters = require('../../lib/filters')
 const schema = require('../../schemas/beers')
@@ -12,7 +13,8 @@ function beers (req, res, next) {
     return next({code: 400})
   }
 
-  const filteredDb = filters(db, req)
+  const orderedDb = sortBy(db, ['id'])
+  const filteredDb = filters(orderedDb, req)
   const paginatedBeers = paginate(filteredDb, req)
 
   res.status(200)

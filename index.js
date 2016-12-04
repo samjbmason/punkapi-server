@@ -19,3 +19,5 @@ const server = app.listen(system.getPort(), function (error) {
   process.once('SIGTERM', system.shutdown(server))
   winston.info(`Listening on localhost:${server.address().port}`)
 })
+
+module.exports = app

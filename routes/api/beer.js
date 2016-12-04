@@ -1,6 +1,7 @@
 const db = require('punkapi-db')
-const find = require('lodash/find')
+const filter = require('lodash/filter')
 const toInteger = require('lodash/toInteger')
+const isEmpty = require('lodash/isEmpty')
 const schema = require('../../schemas/beer')
 
 function beer (req, res, next) {
@@ -14,9 +15,9 @@ function beer (req, res, next) {
 
   const { beerId } = req.params
   const beerIdInt = toInteger(beerId)
-  const selectedBeer = find(db, { id: beerIdInt })
+  const selectedBeer = filter(db, { id: beerIdInt })
 
-  if (selectedBeer == null) {
+  if (isEmpty(selectedBeer)) {
     return next({code: 404, msg: `No beer found that matches the ID ${beerId}`})
   }
 
