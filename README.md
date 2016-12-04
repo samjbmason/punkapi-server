@@ -1,7 +1,5 @@
 # PunkAPI - Server [![Build Status](https://travis-ci.org/samjbmason/punkapi-server.svg?branch=master)](https://travis-ci.org/samjbmason/punkapi-server)
 
-The
-
 The PunkAPI server is a pretty simple Express app, its takes the data from `punkapi-db` and provides a set of filters and endpoints for the queries.
 
 The data itself is stored in the [punkapi-db](https://github.com/samjbmason/punkapi-db) repository and is available on npm as `punkapi-db`.
