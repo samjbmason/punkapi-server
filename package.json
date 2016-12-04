@@ -11,7 +11,7 @@
     "dev": "nodemon index.js",
     "test": "standard --verbose | snazzy && mocha",
     "deploy": "now",
-    "realias": "now-realias"
+    "alias": "now alias"
   },
   "repository": {
     "type": "git",
@@ -50,5 +50,8 @@
     "ignore": [
       "test/**/*"
     ]
+  },
+  "now": {
+    "alias": "api.punkapi.com"
   }
 }

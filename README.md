@@ -15,4 +15,4 @@ Then run `$ npm i` and to spin up a local server run `$ npm run dev`, the site s
 Probably not very useful for anyone else!
 
 - Run `$ npm run deploy`
-- Run `$ npm run realias` to realias the domain to `api.punkapi.com`
+- Run `$ npm run alias` to realias the domain to `api.punkapi.com`
