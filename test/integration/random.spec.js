@@ -8,8 +8,8 @@ describe('/beers/random', function() {
       .end(function(err, res) {
         res.statusCode.should.equal(200)
         res.should.be.json()
-        res.body.should.be.a.Object()
-        res.body.should.have.keys('id', 'name', 'food_pairing')
+        res.body.should.be.a.Array()
+        res.body[0].should.have.keys('id', 'name', 'food_pairing')
         done()
       });
   })

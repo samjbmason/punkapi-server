@@ -9,7 +9,7 @@ function random (req, res) {
   const randomBeer = nth(db, randIndex)
 
   res.status(200)
-  res.json(randomBeer)
+  res.json([randomBeer])
 };
 
 module.exports = random
