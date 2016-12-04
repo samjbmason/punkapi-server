@@ -9,7 +9,9 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "standard --verbose | snazzy && mocha"
+    "test": "standard --verbose | snazzy && mocha",
+    "deploy": "now",
+    "realias": "now-realias"
   },
   "repository": {
     "type": "git",

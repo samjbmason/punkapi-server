@@ -1,30 +1,18 @@
 # PunkAPI - Server [![Build Status](https://travis-ci.org/samjbmason/punkapi-server.svg?branch=master)](https://travis-ci.org/samjbmason/punkapi-server)
 
-The PunkAPI server is a pretty simple rails app, that provides authentication and a way to serve up the raw data.
+The
 
-The data itself is stored in the [punkapi](https://github.com/samjbmason/punkapi) repository, it is pulled into this app through a git submodule.
+The PunkAPI server is a pretty simple Express app, its takes the data from `punkapi-db` and provides a set of filters and endpoints for the queries.
 
-## Fetch the latest data from [punkapi](https://github.com/samjbmason/punkapi)
-Move into the `punkapi-data` folder and from there run in the terminal
+The data itself is stored in the [punkapi-db](https://github.com/samjbmason/punkapi-db) repository and is available on npm as `punkapi-db`.
 
-```
-$ git fetch
-$ git merge origin/master
-```
+## To run locally
+Clone the repo `$ git clone https://github.com/samjbmason/punkapi-server`
 
-This will download any new data from the `punkapi` repo, you can then run
-
-```
-$ rake beer:load
-```
-
-This will load up all the data and add it to the db.
+Then run `$ npm i` and to spin up a local server run `$ npm run dev`, the site should now be available at `http://localhost:3333`
 
 ## Deploying
 Probably not very useful for anyone else!
 
-- Pull down any changes from punkapi
-- Commit and push any chnage to Github
-- Run `git push dokku master`
-- Once deployed run `ssh root@punkapi.com`
-- And to load up any data changes `dokku run punkapi.com rake beer:load`
+- Run `$ npm run deploy`
+- Run `$ npm run realias` to realias the domain to `api.punkapi.com`
