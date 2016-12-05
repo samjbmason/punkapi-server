@@ -30,6 +30,7 @@
     "express-validator": "^2.21.0",
     "forever": "^0.15.3",
     "helmet": "^3.1.0",
+    "http-proxy": "^1.16.1",
     "lodash": "^4.16.6",
     "moment": "^2.16.0",
     "ms": "^0.7.2",

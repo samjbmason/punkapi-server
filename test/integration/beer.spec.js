@@ -1,10 +1,10 @@
 const request = require('supertest')
 const app = require('../../index')
 
-describe('/beers/:id', function() {
+describe('/v2/beers/:id', function() {
   it('should return Punk IPA 10 beer', function (done) {
     request(app)
-      .get('/beers/106')
+      .get('/v2/beers/106')
       .end(function(err, res) {
         res.statusCode.should.equal(200)
         res.should.be.json()
@@ -18,7 +18,7 @@ describe('/beers/:id', function() {
 
   it('should return 404 if id doesnt match', function (done) {
     request(app)
-      .get('/beers/1000')
+      .get('/v2/beers/1000')
       .end(function(err, res) {
         res.statusCode.should.equal(404)
         res.should.be.json()

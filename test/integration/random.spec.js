@@ -1,10 +1,10 @@
 const request = require('supertest')
 const app = require('../../index')
 
-describe('/beers/random', function() {
+describe('/v2/beers/random', function() {
   it('should return one beer at random', function (done) {
     request(app)
-      .get('/beers/random')
+      .get('/v2/beers/random')
       .end(function(err, res) {
         res.statusCode.should.equal(200)
         res.should.be.json()
