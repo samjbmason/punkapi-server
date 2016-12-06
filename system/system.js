@@ -3,11 +3,14 @@ var _isDev = process.env.NODE_ENV !== 'production'
 require('dotenv').config({ silent: true })
 
 const ms = require('ms')
-const winston = require('winston')
 const SHUTDOWN_TIMEOUT = ms('10s')
 
 function isDev () {
   return _isDev
+}
+
+function getSentryKey () {
+  return process.env.SENTRY_KEY
 }
 
 function getPort () {
@@ -16,11 +19,11 @@ function getPort () {
 
 function shutdown (server) {
   return (server) => {
-    winston.info('Closing active connections')
+    console.info('Closing active connections')
     server.close(process.exit)
 
     setTimeout(function () {
-      winston.info(`Could not close active connections in ${ms(SHUTDOWN_TIMEOUT, { long: true })}, shutting down.`)
+      console.info(`Could not close active connections in ${ms(SHUTDOWN_TIMEOUT, { long: true })}, shutting down.`)
       process.exit()
     }, SHUTDOWN_TIMEOUT)
   }
@@ -29,3 +32,4 @@ function shutdown (server) {
 exports.isDev = isDev
 exports.getPort = getPort
 exports.shutdown = shutdown
+exports.getSentryKey = getSentryKey

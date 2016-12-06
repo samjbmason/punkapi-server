@@ -3,6 +3,7 @@ const sortBy = require('lodash/sortBy')
 const paginate = require('../../lib/paginate')
 const filters = require('../../lib/filters')
 const schema = require('../../schemas/beers')
+const { notFoundError, validationError } = require('../../lib/errorHandler')
 
 function beers (req, res, next) {
   req.checkQuery(schema)
@@ -10,7 +11,7 @@ function beers (req, res, next) {
   const errors = req.validationErrors()
 
   if (errors) {
-    return next({code: 400})
+    return next(validationError(errors))
   }
 
   const orderedDb = sortBy(db, ['id'])

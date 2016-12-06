@@ -3,6 +3,7 @@ const toInteger = require('lodash/toInteger')
 const isEmpty = require('lodash/isEmpty')
 const idFilter = require('../../lib/filters/id')
 const schema = require('../../schemas/beer')
+const { notFoundError, validationError } = require('../../lib/errorHandler')
 
 function beer (req, res, next) {
   req.checkParams(schema)
@@ -10,7 +11,7 @@ function beer (req, res, next) {
   const errors = req.validationErrors()
 
   if (errors) {
-    return next({code: 400})
+    return next(validationError(errors))
   }
 
   const { beerId } = req.params
@@ -18,7 +19,7 @@ function beer (req, res, next) {
   const selectedBeer = idFilter(beerIdInt, db)
 
   if (isEmpty(selectedBeer)) {
-    return next({code: 404, msg: `No beer found that matches the ID ${beerId}`})
+    return next(notFoundError(`No beer found that matches the ID ${beerId}`))
   }
 
   res.status(200)
