@@ -1,4 +1,4 @@
-const system = require('./system/system')
+const system = require('./system')
 const raven = require('raven')
 const express = require('express')
 const rateLimit = require('./lib/rateLimit')
