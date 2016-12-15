@@ -183,4 +183,16 @@ describe('/v2/beers/', function() {
         done()
       })
   })
+
+  it('should return a 400 validation error if incorrect param is passed', function (done) {
+    request(app)
+      .get('/v2/beers/?abv_gt=-1')
+      .end(function(err, res) {
+        res.statusCode.should.equal(400)
+        res.should.be.json()
+        res.body.should.be.a.Object()
+        res.body.should.containEql({statusCode: 400})
+        done()
+      })
+  })
 })

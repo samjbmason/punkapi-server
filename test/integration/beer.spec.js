@@ -27,4 +27,16 @@ describe('/v2/beers/:id', function() {
         done()
       });
   })
+
+  it('should return 400 if invalid params are passed', function (done) {
+    request(app)
+      .get('/v2/beers/randomstring')
+      .end(function(err, res) {
+        res.statusCode.should.equal(400)
+        res.should.be.json()
+        res.body.should.be.a.Object()
+        res.body.should.containEql({statusCode: 400})
+        done()
+      });
+  })
 })

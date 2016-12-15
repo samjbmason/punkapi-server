@@ -10,7 +10,9 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "test": "standard --verbose | snazzy && mocha",
-    "deploy": "now -e NODE_ENV=production -e SENTRY_KEY=@punk-sentry-key -e GS_SITE_TOKEN=@punk-gs-site-token -e GS_API_KEY=@punk-gs-api-key",
+    "cover": "istanbul cover _mocha",
+    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
+    "deploy": "now NODE_ENV=production -e SENTRY_KEY=@punk-sentry-key -e GS_SITE_TOKEN=@punk-gs-site-token -e GS_API_KEY=@punk-gs-api-key",
     "alias": "now alias"
   },
   "repository": {
@@ -40,7 +42,10 @@
     "winston": "^2.3.0"
   },
   "devDependencies": {
+    "coveralls": "^2.11.15",
+    "istanbul": "^0.4.5",
     "mocha": "^3.2.0",
+    "mocha-lcov-reporter": "^1.2.0",
     "nodemon": "^1.11.0",
     "should": "^11.1.1",
     "should-http": "0.0.4",
