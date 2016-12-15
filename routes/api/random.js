@@ -1,17 +1,12 @@
-const db = require('punkapi-db')
-const rand = require('lodash/random')
-const nth = require('lodash/nth')
+const punkapi = require('punkapi-lib')
 const trackEvent = require('../../lib/trackEvent')
 
-const noOfBeers = db.length
-
 function random (req, res) {
-  const randIndex = rand(noOfBeers)
-  const randomBeer = nth(db, randIndex)
+  const randomBeer = punkapi.random()
 
   trackEvent(`API - /beers/random`)
   res.status(200)
-  res.json([randomBeer])
+  res.json(randomBeer)
 };
 
 module.exports = random

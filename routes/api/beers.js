@@ -1,7 +1,5 @@
-const db = require('punkapi-db')
-const sortBy = require('lodash/sortBy')
+const punkapi = require('punkapi-lib')
 const paginate = require('../../lib/paginate')
-const filters = require('../../lib/filters')
 const trackEvent = require('../../lib/trackEvent')
 const schema = require('../../schemas/beers')
 const { validationError } = require('../../lib/errorHandler')
@@ -15,8 +13,7 @@ function beers (req, res, next) {
     return next(validationError(errors))
   }
 
-  const orderedDb = sortBy(db, ['id'])
-  const filteredDb = filters(orderedDb, req)
+  const filteredDb = punkapi.beers(req.query)
   const paginatedBeers = paginate(filteredDb, req)
 
   trackEvent(`API - /beers/ - ${req.originalUrl}`)

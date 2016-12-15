@@ -1,7 +1,6 @@
-const db = require('punkapi-db')
+const punkapi = require('punkapi-lib')
 const toInteger = require('lodash/toInteger')
 const isEmpty = require('lodash/isEmpty')
-const idFilter = require('../../lib/filters/id')
 const trackEvent = require('../../lib/trackEvent')
 const { notFoundError, validationError } = require('../../lib/errorHandler')
 const schema = require('../../schemas/beer')
@@ -17,7 +16,7 @@ function beer (req, res, next) {
 
   const { beerId } = req.params
   const beerIdInt = toInteger(beerId)
-  const selectedBeer = idFilter(beerIdInt, db)
+  const selectedBeer = punkapi.beer(beerIdInt)
 
   if (isEmpty(selectedBeer)) {
     return next(notFoundError(`No beer found that matches the ID ${beerId}`))
