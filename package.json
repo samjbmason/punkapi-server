@@ -25,6 +25,7 @@
   "homepage": "https://github.com/samjbmason/punkapi-server#readme",
   "dependencies": {
     "boom": "^4.2.0",
+    "cors": "^2.8.1",
     "dotenv": "^2.0.0",
     "express": "^4.14.0",
     "express-rate-limit": "^2.6.0",
