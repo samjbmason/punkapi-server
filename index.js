@@ -1,15 +1,15 @@
 const system = require('./system')
-const raven = require('raven')
 const express = require('express')
+const sentry = require('./lib/sentry')
 const useCors = require('./lib/cors')
 const rateLimit = require('./lib/rateLimit')
 const { errorHandler, notFoundError } = require('./lib/errorHandler')
 
 const app = express()
 
-if (!system.isDev()) {
-  app.use(raven.middleware.express.requestHandler(system.getSentryKey()))
-}
+sentry.config()
+
+app.use(sentry.reqHandler())
 
 app.use(require('helmet')())
 app.use(require('express-validator')())
@@ -17,9 +17,7 @@ app.use(require('express-validator')())
 app.use('/v2', useCors(), rateLimit, require('./routes'))
 app.use('*', (req, res, next) => next(notFoundError(`No endpoint found that matches '${req.originalUrl}'`)))
 
-if (!system.isDev()) {
-  app.use(raven.middleware.express.errorHandler(system.getSentryKey()))
-}
+app.use(sentry.errHandler())
 
 app.use(errorHandler)
 
