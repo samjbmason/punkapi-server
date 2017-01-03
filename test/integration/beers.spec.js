@@ -195,4 +195,6 @@ describe('/v2/beers/', function() {
         done()
       })
   })
+
+  // Add spec for idsfilter
 })
