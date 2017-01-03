@@ -170,4 +170,17 @@ describe('/v2/beers/', function() {
         done()
       })
   })
+
+  it('should return beers with ids of 1,4,29', function (done) {
+    request(app)
+      .get('/v2/beers/?ids=1|4|29')
+      .end(function(err, res) {
+        res.statusCode.should.equal(200)
+        res.should.be.json()
+        res.body[0].id.should.be.equal(1)
+        res.body[1].id.should.be.equal(4)
+        res.body[2].id.should.be.equal(29)
+        done()
+      })
+  })
 })
