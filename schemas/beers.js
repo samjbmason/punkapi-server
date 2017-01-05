@@ -51,24 +51,29 @@ const schema = {
     matches: /[0-1][1-9]-\d{4}\b/
   },
   beer_name: {
-    errorMessage: 'Must be text and if using multiple words use underscores',
-    optional: true
+    errorMessage: 'Must have a value and if you are using multiple words use underscores to separate',
+    optional: true,
+    notEmpty: true
   },
   hops: {
-    errorMessage: 'Must be text and if using multiple words use underscores',
-    optional: true
+    errorMessage: 'Must have a value and if you are using multiple words use underscores to separate',
+    optional: true,
+    notEmpty: true
   },
   malt: {
-    errorMessage: 'Must be text and if using multiple words use underscores',
-    optional: true
+    errorMessage: 'Must have a value and if you are using multiple words use underscores to separate',
+    optional: true,
+    notEmpty: true
   },
   yeast: {
-    errorMessage: 'Must be text and if using multiple words use underscores',
-    optional: true
+    errorMessage: 'Must have a value and if you are using multiple words use underscores to separate',
+    optional: true,
+    notEmpty: true
   },
   food: {
-    errorMessage: 'Must be text and if using multiple words use underscores',
-    optional: true
+    errorMessage: 'Must have a value and if you are using multiple words use underscores to separate',
+    optional: true,
+    notEmpty: true
   }
 }
 
