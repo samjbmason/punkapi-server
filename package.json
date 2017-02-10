@@ -12,8 +12,8 @@
     "test": "standard --verbose | snazzy && mocha",
     "cover": "istanbul cover _mocha",
     "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
-    "deploy": "now -e NODE_ENV=production -e SENTRY_KEY=@punk-sentry-key -e GS_SITE_TOKEN=@punk-gs-site-token -e GS_API_KEY=@punk-gs-api-key",
-    "alias": "now alias"
+    "deploy": "now",
+    "alias": "now --alias"
   },
   "repository": {
     "type": "git",
@@ -57,8 +57,5 @@
     "ignore": [
       "test/**/*"
     ]
-  },
-  "now": {
-    "alias": "api.punkapi.com"
   }
 }
