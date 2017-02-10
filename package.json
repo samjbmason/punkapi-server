@@ -37,7 +37,7 @@
     "lodash": "^4.16.6",
     "moment": "^2.16.0",
     "ms": "^0.7.2",
-    "punkapi-lib": "^2.1.0",
+    "punkapi-lib": "^2.2.0",
     "raven": "^1.1.1",
     "winston": "^2.3.0"
   },
