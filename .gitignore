@@ -9,3 +9,4 @@
 !/log/.keep
 /tmp
 /*.log
+/coverage
