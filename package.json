@@ -9,10 +9,9 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "snazzy && mocha",
+    "test": "mocha",
     "cover": "istanbul cover _mocha",
-    "coveralls":
-      "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
+    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
     "deploy": "now",
     "alias": "now alias"
   },
@@ -48,7 +47,6 @@
     "nodemon": "^1.11.0",
     "should": "^11.1.1",
     "should-http": "0.0.4",
-    "snazzy": "^5.0.0",
     "supertest": "^2.0.1"
   }
 }
