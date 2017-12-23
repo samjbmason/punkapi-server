@@ -14,7 +14,7 @@
     "coveralls":
       "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
     "deploy": "now",
-    "alias": "now --alias"
+    "alias": "now alias"
   },
   "repository": {
     "type": "git",
