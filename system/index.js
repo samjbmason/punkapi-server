@@ -32,4 +32,3 @@ function shutdown(server) {
 exports.isDev = isDev
 exports.getPort = getPort
 exports.shutdown = shutdown
-exports.getSentryKey = getSentryKey

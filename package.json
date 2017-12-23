@@ -4,14 +4,15 @@
   "description": "The core behind punkapi.com",
   "main": "index.js",
   "engines": {
-    "node": "7.0.0"
+    "node": "8.9.3"
   },
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
     "test": "standard --verbose | snazzy && mocha",
     "cover": "istanbul cover _mocha",
-    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
+    "coveralls":
+      "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
     "deploy": "now",
     "alias": "now --alias"
   },
@@ -52,8 +53,6 @@
     "supertest": "^2.0.1"
   },
   "standard": {
-    "ignore": [
-      "test/**/*"
-    ]
+    "ignore": ["test/**/*"]
   }
 }
