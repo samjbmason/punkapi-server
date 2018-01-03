@@ -4,7 +4,7 @@ const trackEvent = require('../../lib/trackEvent')
 const schema = require('../../schemas/beers')
 const { validationError } = require('../../lib/errorHandler')
 
-function beers (req, res, next) {
+function beers(req, res, next) {
   req.checkQuery(schema)
 
   const errors = req.validationErrors()
@@ -20,6 +20,6 @@ function beers (req, res, next) {
 
   res.status(200)
   res.json(paginatedBeers)
-};
+}
 
 module.exports = beers

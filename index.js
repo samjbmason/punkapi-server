@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const system = require('./system')
 const express = require('express')
 const useCors = require('./lib/cors')

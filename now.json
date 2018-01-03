@@ -1,8 +1,0 @@
-{
-  "alias": "api.punkapi.com",
-  "env": {
-    "NODE_ENV": "production",
-    "GS_SITE_TOKEN": "@punk-gs-site-token",
-    "GS_API_KEY": "@punk-gs-api-key"
-  }
-}
