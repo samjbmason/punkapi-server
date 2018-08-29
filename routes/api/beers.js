@@ -17,7 +17,7 @@ function beers(req, res, next) {
   const paginatedBeers = paginate(filteredDb, req)
 
   trackEvent(`API - /beers/ - ${req.originalUrl}`)
-
+  trackEvent('API Hit')
   res.status(200)
   res.json(paginatedBeers)
 }

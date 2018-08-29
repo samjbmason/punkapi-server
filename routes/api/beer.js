@@ -5,7 +5,7 @@ const trackEvent = require('../../lib/trackEvent')
 const { notFoundError, validationError } = require('../../lib/errorHandler')
 const schema = require('../../schemas/beer')
 
-function beer (req, res, next) {
+function beer(req, res, next) {
   req.checkParams(schema)
 
   const errors = req.validationErrors()
@@ -23,8 +23,9 @@ function beer (req, res, next) {
   }
 
   trackEvent(`API - /beers/id - ${req.originalUrl}`)
+  trackEvent('API Hit')
   res.status(200)
   res.json(selectedBeer)
-};
+}
 
 module.exports = beer

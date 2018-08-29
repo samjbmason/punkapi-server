@@ -3,7 +3,7 @@ require('dotenv').config()
 const system = require('./system')
 const express = require('express')
 const useCors = require('./lib/cors')
-const rateLimit = require('./lib/rateLimit')
+const rateLimiter = require('./lib/rateLimit')
 const { errorHandler, notFoundError } = require('./lib/errorHandler')
 
 const app = express()
@@ -11,7 +11,8 @@ const app = express()
 app.use(require('helmet')())
 app.use(require('express-validator')())
 
-app.use('/v2', useCors(), rateLimit, require('./routes'))
+app.use('/v2', useCors(), rateLimiter, require('./routes'))
+app.use('/graphql', useCors(), rateLimiter, require('./routes/graphql'))
 app.use('*', (req, res, next) =>
   next(notFoundError(`No endpoint found that matches '${req.originalUrl}'`))
 )
