@@ -7,6 +7,7 @@ const rateLimit = require('./lib/rateLimit')
 const { errorHandler, notFoundError } = require('./lib/errorHandler')
 
 const app = express()
+const port = system.getPort()
 
 app.use(require('helmet')())
 app.use(require('express-validator')())
@@ -18,11 +19,11 @@ app.use('*', (req, res, next) =>
 
 app.use(errorHandler)
 
-const server = app.listen(system.getPort(), function(error) {
+const server = app.listen(port, function(error) {
   if (error) throw error
 
   process.once('SIGTERM', system.shutdown(server))
-  console.info(`Listening on http://localhost:${server.address().port}`)
+  console.info(`Listening on http://localhost:${port}`)
 })
 
 module.exports = app

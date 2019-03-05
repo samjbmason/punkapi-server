@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "alias": ["api.punkapi.com"],
+  "builds": [
+    {
+      "src": "index.js",
+      "use": "@now/node-server",
+      "config": { "maxLambdaSize": "20mb" }
+    }
+  ],
+  "routes": [{ "src": "/(.*)", "dest": "index.js" }]
+}

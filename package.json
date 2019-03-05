@@ -12,8 +12,8 @@
     "test": "mocha --exit",
     "cover": "istanbul cover _mocha",
     "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
-    "deploy": "up",
-    "deploy:prod": "up deploy production"
+    "deploy": "now",
+    "deploy:prod": "now alias"
   },
   "repository": {
     "type": "git",

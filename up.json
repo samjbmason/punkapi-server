@@ -1,9 +1,0 @@
-{
-  "name": "punkapi-server",
-  "profile": "up_admin",
-  "stages": {
-    "production": {
-      "domain": "api.punkapi.com"
-    }
-  }
-}
