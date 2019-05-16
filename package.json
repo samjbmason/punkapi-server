@@ -13,7 +13,7 @@
     "cover": "istanbul cover _mocha",
     "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
     "deploy": "now",
-    "deploy:prod": "now alias"
+    "deploy:prod": "now --target production"
   },
   "repository": {
     "type": "git",
