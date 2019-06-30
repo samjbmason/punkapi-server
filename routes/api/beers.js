@@ -14,10 +14,13 @@ function beers(req, res, next) {
   }
 
   const filteredDb = punkapi.beers(req.query)
-  const paginatedBeers = paginate(filteredDb, req)
+  const {paginatedBeers,total,per_page,page,pages} = paginate(filteredDb, req)
 
   trackEvent(`API - /beers/ - ${req.originalUrl}`)
-
+  res.set('X-total', total);
+  res.set('X-per-page',per_page);
+  res.set('X-page',page);
+  res.set('X-pages',pages);
   res.status(200)
   res.json(paginatedBeers)
 }
