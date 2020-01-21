@@ -1,3 +1,5 @@
+# Deprecated: This repo's functionality has moved to the [punkapi](https://github.com/samjbmason/punkapi/) monorepo
+
 # PunkAPI - Server [![Build Status](https://travis-ci.org/samjbmason/punkapi-server.svg?branch=master)](https://travis-ci.org/samjbmason/punkapi-server)
 
 The PunkAPI server is a pretty simple Express app, its takes the data from `punkapi-db` and provides a set of filters and endpoints for the queries.
